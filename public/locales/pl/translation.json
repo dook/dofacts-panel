@@ -1,5 +1,16 @@
 {
   "title": "Welcome to react using react-i18next",
+  "filters": {
+    "showAll": "Pokaż wszystkie",
+    "specialization": "Specjalizacja",
+    "verdict": "Werdykt",
+    "isDuplicate": "Czy duplikat?",
+    "deleted": "Czy usunięte?",
+    "isSensitive": "Wrażliwe słowa",
+    "verificationStatus": "Staus weryfikacji",
+    "yes": "Tak",
+    "no": "Nie"
+  },
   "verdictTypes": {
     "no_verdict": "Brak werdyktu",
     "true": "Prawda",
@@ -30,6 +41,12 @@
     "community": "Społeczność",
     "experts": "Eksperci",
     "invitations": "Zaproszenia"
+  },
+  "common": {
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "send": "Wyślij",
+    "noResults": "Brak wyników."
   },
   "layout": {
     "textUnderLogo": "Panel administracyjny",
@@ -75,10 +92,90 @@
   "submissions": {
     "title": "Zgłoszenia",
     "sourceLink": "Link źródłowy",
-    "details": "Szczegóły"
+    "details": "Szczegóły",
+    "duplicate": "Duplikat",
+    "sensitive": "Sensitive words"
   },
   "history": {
     "title": "Historia zgłoszeń",
     "noResults": "Brak wyników."
+  },
+  "users": {
+    "nameAndSurname": "Imię i nazwisko",
+    "email": "Adres e-mail",
+    "specialization": "Specjalizacja",
+    "submissionsCount": "Zweryfikowane/Przypisane",
+    "registerDate": "Data rejestracji",
+    "added": "Dodano",
+    "addNextBtn": "Dodaj kolejnego",
+    "addBtn": "Dodaj"
+  },
+  "community": {
+    "title": "Społeczność",
+    "addUser": "Dodaj fact checkera",
+    "options": "Opcje",
+    "deactivate": "Dezaktywuj konto",
+    "activate": "Aktywuj konto",
+    "promote": "Przydziel rolę eksperta"
+  },
+  "experts": {
+    "title": "Eksperci",
+    "addUser": "Dodaj eksperta",
+    "deactivate": "Dezaktywuj",
+    "activate": "Aktywuj"
+  },
+  "invitations": {
+    "title": "Zaproszenia",
+    "email": "E-mail",
+    "sendDate": "Data wysłania",
+    "status": "Status zaproszenia",
+    "linkStatus": "Status linku",
+    "linkIsActive": "Link aktywny",
+    "linkIsExpired": "Ważność linku wygasła"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "sensitiveWords": "Wrażliwe słowa",
+    "newSensitiveWords": "Nowe wrażliwe słowo",
+    "addBtn": "Dodaj",
+    "passwordChange": "Zmień hasło",
+    "passwordInstruction": "Nowe hasło powinno zawierać: co najmniej 8 znaków, minimum jedną wielką literę, minimum jedną cyfrę, minimum jeden znak specjalny",
+    "passwordBtn": "Zmień hasło",
+    "actualPassword": "Aktualne hasło",
+    "newPassword": "Nowe hasło",
+    "repeatNewPassword": "Powtórz nowe hasło"
+  },
+  "details": {
+    "title": "Zgłoszenie",
+    "formSent": "Formularz wysłany",
+    "backToList": "Lista zgłoszeń",
+    "expertVerdict": "Werdykt eksperta",
+    "submissionRemoved": "Zgłoszenie usunięte",
+    "removeBtn": "Usuń zgłoszenie",
+    "recoverBtn": "Przywróć zgłoszenie",
+    "zoomPhoto": "Powiększ zdjęcie",
+    "sensitiveWords": "Słowa wrażliwe: ",
+    "reportedAt": "Data zgłoszenia: ",
+    "userComment": "Komentarz od użytkownika",
+    "informationContent": "Treść informacji",
+    "sourceLink": "Link źródłowy",
+    "factCheckerVerdictTitle": "Werdykty społeczności",
+    "factCheckerVerdict": "Werdykt fact checkera",
+    "noFactCheckerVerdict": "Brak werdyktów fake hunterów."
+  },
+  "verification": {
+    "title": "Formularz weryfikacji",
+    "sendBtn": "Zweryfikuj zgłoszenie",
+    "duplicate": "Zgłoszenie zduplikowane",
+    "duplicateLink": "Link do zgłoszenia",
+    "duplicateHelp": "Link z naszego systemu np. {{origin}}/submisions/e06339c3-3a43-444e-908b-1ba02f9397a4",
+    "submissionTitle": "Tytuł",
+    "submissionTitleHelp": "Wpisz tytuł w formie pytania, np. „Czy zwierzęta domowe mogą być nosicielami koronawirusa?”",
+    "aboutCoronavirus": "Dotyczy koronawirusa",
+    "yourVerdict": "Twój werdykt",
+    "comment": "Uzasadnienie",
+    "sources": "Źródła",
+    "sourcesHelp": "Podaj źródła, na których opierasz swój werdykt",
+    "letterCount": "Liczba znaków: "
   }
 }

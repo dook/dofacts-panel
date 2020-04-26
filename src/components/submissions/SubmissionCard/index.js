@@ -8,12 +8,11 @@ import { Card, CardMedia, CardActions, Typography, Button, Link as StyledLink, C
 import { appUrls } from 'urls';
 import { resolveUrl } from 'utils/url';
 import styles from './SubmissionCard.module.scss';
-import { verdictTypes } from 'consts';
 
-const getVerdict = (verdict, isDuplicate, isSensitive) => {
-  if (isDuplicate) return 'Duplikat';
-  if (isSensitive) return 'Wrażliwe słowa';
-  return verdictTypes[verdict];
+const getVerdict = (t, verdict, isDuplicate, isSensitive) => {
+  if (isDuplicate) return t('submissions.duplicate', 'Duplikat');
+  if (isSensitive) return t('submissions.sensitive', 'Wrażliwe słowa');
+  return t(`verdictTypes.${verdict}`);
 };
 
 // TODO: split card to submission and history version
@@ -39,7 +38,7 @@ const SubmissionCard = ({
   });
 
   const formatedReportDate = reportDate && new Date(reportDate).toLocaleString();
-  const verdictLabel = getVerdict(verdict, isDuplicate, isSensitive);
+  const verdictLabel = getVerdict(t, verdict, isDuplicate, isSensitive);
 
   return (
     <Card className={styles.card}>

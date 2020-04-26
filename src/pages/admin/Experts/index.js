@@ -17,10 +17,12 @@ import Pagination from 'components/Pagination';
 import AddUserModal from 'components/AddUserModal';
 
 import styles from './Experts.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const FILTERS = [
   {
     name: 'specialization',
+    i18nkey: 'filters.specialization',
     label: 'Specjalizacja',
     defaultValue: ALL_OPTIONS.value,
     options: [ALL_OPTIONS, ...specializationOptions]
@@ -28,6 +30,7 @@ const FILTERS = [
 ];
 
 const Experts = () => {
+  const { t } = useTranslation();
   const query = useQuery();
   const dispatch = useDispatch();
   const [isOpen, setOpen] = useState(false);
@@ -57,20 +60,20 @@ const Experts = () => {
 
   return (
     <>
-      <Title>Eksperci</Title>
+      <Title>{t('experts.title')}</Title>
       <Filters filters={FILTERS}>
         <Button onClick={openModal} className={styles.addButton} variant="contained" color="primary">
-          Dodaj eksperta
+          {t('experts.addUser')}
         </Button>
       </Filters>
       <Suspense waitFor={experts}>
         <UserTable
           data={experts.data?.results || []}
-          optionsHeader="Dezaktywuj"
+          optionsHeader={t('experts.deactivate')}
           renderOptions={({ id, is_active }) => (
             <IconButton
-              title={is_active ? 'Dezaktywuj' : 'Aktywuj'}
-              aria-label={is_active ? 'Dezaktywuj' : 'Aktywuj'}
+              title={is_active ? t('experts.deactivate') : t('experts.activate')}
+              aria-label={is_active ? t('experts.deactivate') : t('experts.activate')}
               className={cx(!is_active && styles.bannedBtn)}
               onClick={handleStatusChange(id, !is_active)}
             >
@@ -81,7 +84,7 @@ const Experts = () => {
         <Pagination total={experts.data?.total} />
       </Suspense>
       <AddUserModal
-        title="Dodaj eksperta"
+        title={t('experts.addUser')}
         isOpen={isOpen}
         onClose={() => setOpen(false)}
         onSubmit={handleSubmit}

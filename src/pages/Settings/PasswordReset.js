@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
@@ -34,6 +35,7 @@ const validationSchema = yup.object().shape({
 });
 
 const Settings = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { passwordChange } = useSelector(({ user }) => ({
     passwordChange: user.passwordChange
@@ -46,11 +48,10 @@ const Settings = () => {
   return (
     <Paper className={styles.passwordWrapper}>
       <Typography variant="h6" component="h2">
-        Zmiana hasła
+        {t('settings.passwordChange')}
       </Typography>
       <Typography variant="body2" className={styles.field}>
-        Nowe hasło powinno zawierać: co najmniej 8 znaków, minimum jedną wielką literę, minimum jedną cyfrę, minimum
-        jeden znak specjalny
+        {t('settings.passwordInstruction')}
       </Typography>
 
       <Alert showOn={passwordChange.error} className={styles.field}>
@@ -62,9 +63,19 @@ const Settings = () => {
 
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handlePasswordChange}>
         <Form className={styles.form}>
-          <FormTextField label="Aktualne hasło" name="old_password" type="password" className={styles.field} />
-          <FormTextField label="Nowe hasło" name="password" type="password" className={styles.field} />
-          <FormTextField label="Powtórz nowe hasło" name="password2" type="password" className={styles.field} />
+          <FormTextField
+            label={t('settings.actualPassword')}
+            name="old_password"
+            type="password"
+            className={styles.field}
+          />
+          <FormTextField label={t('settings.newPassword')} name="password" type="password" className={styles.field} />
+          <FormTextField
+            label={t('settings.repeatNewPassword')}
+            name="password2"
+            type="password"
+            className={styles.field}
+          />
           <Button
             className={styles.field}
             variant="contained"
@@ -72,7 +83,7 @@ const Settings = () => {
             type="submit"
             disabled={passwordChange.isFetching}
           >
-            Zmień hasło
+            {t('settings.passwordBtn')}
           </Button>
         </Form>
       </Formik>

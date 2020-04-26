@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { useTranslation } from 'react-i18next';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Tooltip } from '@material-ui/core';
@@ -8,16 +8,18 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import styles from './InvitationsTable.module.scss';
 
 const InvitationsTable = ({ invitations }) => {
+  const { t } = useTranslation();
+
   return (
     <Paper>
       <TableContainer>
         <Table aria-label="Tabela ze statusami zaproszeń">
           <TableHead>
             <TableRow>
-              <TableCell>Adres e-mail</TableCell>
-              <TableCell>Data wysłania</TableCell>
-              <TableCell>Status zaproszenia</TableCell>
-              <TableCell align="center">Status linku</TableCell>
+              <TableCell>{t('invitations.email')}</TableCell>
+              <TableCell>{t('invitations.sendDate')}</TableCell>
+              <TableCell>{t('invitations.status')}</TableCell>
+              <TableCell align="center">{t('invitations.linkStatus')}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -30,11 +32,11 @@ const InvitationsTable = ({ invitations }) => {
                 <TableCell>{item.status}</TableCell>
                 <TableCell align="center">
                   {item.expired ? (
-                    <Tooltip title="Ważność linku wygasła">
+                    <Tooltip title={t('invitations.linkIsExpired')}>
                       <CancelIcon className={styles.statusExpired} />
                     </Tooltip>
                   ) : (
-                    <Tooltip title="Link aktywny">
+                    <Tooltip title={t('invitations.linkIsActive')}>
                       <CheckCircleIcon className={styles.statusActive} />
                     </Tooltip>
                   )}

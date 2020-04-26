@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { useQuery } from 'hooks/useQuery';
 import { adminActions } from 'storages/admin/actions';
@@ -10,6 +11,7 @@ import Pagination from 'components/Pagination';
 import InvitationsTable from './InvitationsTable';
 
 const Invitations = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const query = useQuery();
   const { error, isFetching, data } = useSelector(({ admin }) => admin.invitations);
@@ -21,7 +23,7 @@ const Invitations = () => {
 
   return (
     <>
-      <Title>Zaproszenia</Title>
+      <Title>{t('invitations.title')}</Title>
       <Suspense waitFor={{ data, isFetching, error }}>
         <InvitationsTable invitations={data?.results || []} />
         <Pagination total={data?.total} pageSize={data?.page_size} />

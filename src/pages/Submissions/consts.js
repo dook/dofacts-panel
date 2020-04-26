@@ -5,31 +5,38 @@ export const FILTERS = {
   [rolesTypes.ADMIN]: [
     {
       name: 'current_verdict',
+      i18nkey: 'filters.verdict',
       label: 'Werdykt',
       defaultValue: ALL_OPTIONS.value,
       options: [
         ALL_OPTIONS,
         {
+          i18nkey: 'verdictTypes.no_verdict',
           label: 'Brak werdyktu',
           value: 'no_verdict'
         },
         {
+          i18nkey: 'verdictTypes.true',
           label: 'Prawda',
           value: 'true'
         },
         {
+          i18nkey: 'verdictTypes.false',
           label: 'Fake News',
           value: 'false'
         },
         {
+          i18nkey: 'verdictTypes.unidentified',
           label: 'Nieweryfikowalne',
           value: 'unidentified'
         },
         {
+          i18nkey: 'verdictTypes.spam',
           label: 'Spam',
           value: 'spam'
         },
         {
+          i18nkey: 'verdictTypes.awaiting',
           label: 'Czeka na werdykt eksperta',
           value: 'awaiting'
         }
@@ -37,15 +44,18 @@ export const FILTERS = {
     },
     {
       name: 'is_duplicate',
+      i18nkey: 'filters.isDuplicate',
       label: 'Czy duplikat?',
       defaultValue: ALL_OPTIONS.value,
       options: [
         ALL_OPTIONS,
         {
+          i18nkey: 'filters.yes',
           label: 'Tak',
           value: true
         },
         {
+          i18nkey: 'filters.no',
           label: 'Nie',
           value: false
         }
@@ -53,15 +63,18 @@ export const FILTERS = {
     },
     {
       name: 'deleted',
+      i18nkey: 'filters.deleted',
       label: 'Czy usunięte?',
       defaultValue: ALL_OPTIONS.value,
       options: [
         ALL_OPTIONS,
         {
+          i18nkey: 'filters.yes',
           label: 'Tak',
           value: true
         },
         {
+          i18nkey: 'filters.no',
           label: 'Nie',
           value: false
         }
@@ -70,6 +83,7 @@ export const FILTERS = {
     {
       defaultValue: ALL_OPTIONS.value,
       name: 'is_sensitive',
+      i18nkey: 'filters.isSensitive',
       label: 'Wrażliwe słowa',
       options: [
         ALL_OPTIONS,
@@ -88,6 +102,7 @@ export const FILTERS = {
     {
       defaultValue: 'false',
       name: 'is_opined',
+      i18nkey: 'filters.verificationStatus',
       label: 'Status weryfikacji',
       options: [
         ALL_OPTIONS,
@@ -106,30 +121,37 @@ export const FILTERS = {
     {
       defaultValue: ALL_OPTIONS.value,
       name: 'current_verdict',
+      i18nkey: 'filters.verdict',
       label: 'Werdykt',
       options: [
         ALL_OPTIONS,
         {
+          i18nkey: 'verdictTypes.no_verdict',
           label: 'Brak werdyktu',
           value: 'no_verdict'
         },
         {
+          i18nkey: 'verdictTypes.true',
           label: 'Prawda',
           value: 'true'
         },
         {
+          i18nkey: 'verdictTypes.false',
           label: 'Fake News',
           value: 'false'
         },
         {
+          i18nkey: 'verdictTypes.unidentified',
           label: 'Nieweryfikowalne',
           value: 'unidentified'
         },
         {
+          i18nkey: 'verdictTypes.spam',
           label: 'Spam',
           value: 'spam'
         },
         {
+          i18nkey: 'verdictTypes.dispute',
           label: 'Spór',
           value: 'dispute'
         }
@@ -158,10 +180,12 @@ export const FILTERS = {
       options: [
         ALL_OPTIONS,
         {
+          i18nkey: 'filters.yes',
           label: 'Tak',
           value: 'true'
         },
         {
+          i18nkey: 'filters.no',
           label: 'Nie',
           value: 'false'
         }
@@ -170,6 +194,7 @@ export const FILTERS = {
     {
       defaultValue: ALL_OPTIONS.value,
       name: 'is_duplicate',
+      i18nkey: 'filters.isDuplicate',
       label: 'Duplikat',
       options: [
         ALL_OPTIONS,
@@ -186,6 +211,7 @@ export const FILTERS = {
     {
       defaultValue: ALL_OPTIONS.value,
       name: 'is_sensitive',
+      i18nkey: 'filters.isSensitive',
       label: 'Wrażliwe słowa',
       options: [
         ALL_OPTIONS,

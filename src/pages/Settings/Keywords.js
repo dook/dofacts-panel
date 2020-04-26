@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
@@ -24,6 +25,7 @@ const validationSchema = yup.object().shape({
 });
 
 const Keywords = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { keywords, add, remove } = useSelector(({ submissions }) => ({
     keywords: submissions.keywords.list,
@@ -46,7 +48,7 @@ const Keywords = () => {
   return (
     <Paper className={styles.keywordsWrapper}>
       <Typography variant="h6" component="h2">
-        Wrażliwe słowa
+        {t('settings.sensitiveWords')}
       </Typography>
 
       <Alert showOn={add.error}>{add.error}</Alert>
@@ -64,7 +66,7 @@ const Keywords = () => {
 
       <Formik onSubmit={handleSubmit} initialValues={initialValues} validationSchema={validationSchema}>
         <Form className={styles.keywordsForm}>
-          <FormTextField label="Nowe wrażliwe słowo" name={fields.keyword} />
+          <FormTextField label={t('settings.newSensitiveWords')} name={fields.keyword} />
           <Button
             className={styles.addBtn}
             type="submit"
@@ -73,7 +75,7 @@ const Keywords = () => {
             size="small"
             disabled={add.isFetching}
           >
-            Dodaj
+            {t('settings.addBtn')}
           </Button>
         </Form>
       </Formik>

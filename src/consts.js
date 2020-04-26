@@ -24,4 +24,8 @@ export const specializationTypes = {
   other: 'Inne'
 };
 
-export const specializationOptions = Object.entries(specializationTypes).map(([value, label]) => ({ label, value }));
+export const specializationOptions = Object.entries(specializationTypes).map(([value, label]) => ({
+  label,
+  value,
+  i18nkey: `specializationTypes.${value}`
+}));

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
@@ -18,30 +19,36 @@ const getUUIDFromUrl = url => {
 const VERDICT_OPTIONS = [
   {
     label: 'Prawda',
-    value: 'true'
+    value: 'true',
+    i18nkey: 'verdictTypes.true'
   },
   {
     label: 'Fake News',
-    value: 'false'
+    value: 'false',
+    i18nkey: 'verdictTypes.false'
   },
   {
     label: 'Nieweryfikowalne',
-    value: 'unidentified'
+    value: 'unidentified',
+    i18nkey: 'verdictTypes.unidentified'
   },
   {
     label: 'Spam',
-    value: 'spam'
+    value: 'spam',
+    i18nkey: 'verdictTypes.spam'
   }
 ];
 
 const ABOUT_CORONAVIRUS_OPTIONS = [
   {
     label: 'Tak',
-    value: 'true'
+    value: 'true',
+    i18nkey: 'filters.yes'
   },
   {
     label: 'Nie',
-    value: 'false'
+    value: 'false',
+    i18nkey: 'filters.no'
   }
 ];
 
@@ -107,6 +114,7 @@ const validationSchema = yup.object().shape({
 });
 
 const VerificationForm = ({ title, values, onSubmit, isSubmitting, error, disableForm }) => {
+  const { t } = useTranslation();
   const [isDuplicated, setDuplicated] = useState(false);
   const [commentLetterNumber, setCommentLetterNumber] = useState(0);
 
@@ -146,14 +154,14 @@ const VerificationForm = ({ title, values, onSubmit, isSubmitting, error, disabl
 
   return (
     <Paper className={styles.container} variant="outlined">
-      <Title component="h3">{title || 'Formularz weryfikacji'}</Title>
+      <Title component="h3">{title || t('verification.title')}</Title>
       <Formik initialValues={getInitialValues(values)} validationSchema={validationSchema} onSubmit={handleSubmit}>
         {({ setFieldValue }) => (
           <Form>
             <FormCheckbox
               className={styles.field}
               name={fields.isDuplicated}
-              label="Zgłoszenie zduplikowane"
+              label={t('verification.duplicate')}
               onChange={handleChangeDuplicated}
               disabled={disableForm}
             />
@@ -161,34 +169,30 @@ const VerificationForm = ({ title, values, onSubmit, isSubmitting, error, disabl
               className={cx(styles.field, { [styles.hidden]: !isDuplicated })}
               name={fields.duplicateReference}
               disabled={!isDuplicated || disableForm}
-              label="Link do zgłoszenia"
+              label={t('verification.duplicateLink')}
               helperText={
-                !(!isDuplicated || disableForm) &&
-                `Link z naszego systemu np. ${window.location.origin}/submissions/e06339c3-3a43-444e-908b-1ba02f9397a4`
+                !(!isDuplicated || disableForm) && t('verification.duplicateHelp', { origin: window.location.origin })
               }
             />
             <FormTextField
               className={cx(styles.field, { [styles.hidden]: isDuplicated })}
               name={fields.title}
-              label="Tytuł"
+              label={t('verification.submissionTitle')}
               disabled={isFieldDisableCommon}
-              helperText={
-                !isFieldDisableCommon &&
-                'Wpisz tytuł w formie pytania, np. „Czy zwierzęta domowe mogą być nosicielami koronawirusa?”'
-              }
+              helperText={!isFieldDisableCommon && t('verification.submissionTitleHelp')}
             />
             <FormRadio
               className={cx(styles.field, { [styles.hidden]: isDuplicated })}
               name={fields.aboutCoronaVirus}
               options={ABOUT_CORONAVIRUS_OPTIONS}
-              label="Dotyczy koronawirusa"
+              label={t('verification.aboutCoronavirus')}
               disabled={isFieldDisableCommon}
             />
             <FormRadio
               className={cx(styles.field, { [styles.hidden]: isDuplicated })}
               name={fields.verdict}
               options={VERDICT_OPTIONS}
-              label="Twój werdykt"
+              label={t('verification.yourVerdict')}
               disabled={isFieldDisableCommon}
             />
             <FormTextField
@@ -196,13 +200,13 @@ const VerificationForm = ({ title, values, onSubmit, isSubmitting, error, disabl
               rows={10}
               className={cx(styles.field, { [styles.hidden]: isDuplicated })}
               name={fields.comment}
-              label="Uzasadnienie"
+              label={t('verification.comment')}
               onChange={e => handleCommentChange(e, setFieldValue)}
               disabled={isFieldDisableCommon}
             />
             {!isFieldDisableCommon && (
               <div className={styles.letterCounter}>
-                Liczba znaków: <span>{commentLetterNumber}</span>
+                {t('verification.letterCount')} <span>{commentLetterNumber}</span>
               </div>
             )}
 
@@ -211,15 +215,15 @@ const VerificationForm = ({ title, values, onSubmit, isSubmitting, error, disabl
               rows={4}
               className={cx(styles.field, { [styles.hidden]: isDuplicated })}
               name={fields.confirmationSources}
-              label="Źródła"
+              label={t('verification.sources')}
               disabled={isFieldDisableCommon}
-              helperText={!isFieldDisableCommon && 'Podaj źródła, na których opierasz swój werdykt'}
+              helperText={!isFieldDisableCommon && t('verification.sourcesHelp')}
             />
             {!disableForm && (
               <>
                 <div className={styles.actions}>
                   <Button type="submit" variant="contained" color="primary" disabled={isSubmitting}>
-                    Zweryfikuj zgłoszenie
+                    {t('verification.sendBtn')}
                   </Button>
                 </div>
                 {error && <Typography color="error">{error}</Typography>}
