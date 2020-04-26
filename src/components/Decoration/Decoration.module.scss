@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.Decoration {
+  overflow: hidden;
+  padding-top: 120px;
+  position: relative;
+}
+
+.decorationA,
+.decorationB,
+.decorationC {
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 50px);
+  left: -25px;
+  opacity: 0.8;
+}
+
+.decorationA {
+  background-color: $blue-light;
+  transform: rotate(6deg);
+  top: 80px;
+}
+
+.decorationB {
+  background-color: $blue;
+  transform: rotate(-7deg);
+  top: 90px;
+  left: -25px;
+}
+
+.decorationC {
+  background-color: $blue-lighter;
+  transform: rotate(20deg);
+  top: 100px;
+  left: -80px;
+}

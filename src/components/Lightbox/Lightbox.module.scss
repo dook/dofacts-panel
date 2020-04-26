@@ -1,0 +1,21 @@
+@import '~styles/mixins';
+@import '~styles/variables';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  margin: $space-m;
+  outline: none;
+
+  @include media-breakpoint-up(md) {
+    margin: 100px;
+  }
+}
+
+.image {
+  width: 100%;
+}

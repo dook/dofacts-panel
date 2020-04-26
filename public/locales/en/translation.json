@@ -1,0 +1,88 @@
+{
+  "title": "Welcome to react using react-i18next",
+  "verdictTypes": {
+    "no_verdict": "No verdict",
+    "true": "True",
+    "false": "Fake News",
+    "unidentified": "Unverifiable",
+    "spam": "Spam",
+    "awaiting": "Awaiting expert opinion",
+    "dispute": "Dispute"
+  },
+  "specializationTypes": {
+    "journalism": "Journalism",
+    "biology": "Biology",
+    "physics": "Physics",
+    "IT": "IT",
+    "chemistry": "Chemistry",
+    "economy": "Economy",
+    "other": "Other"
+  },
+  "rolesNames": {
+    "admin": "Admin",
+    "expert": "Expert",
+    "fact_checker": "Community"
+  },
+  "menuItems": {
+    "submissions": "Submissions",
+    "history": "History",
+    "settings": "Settings",
+    "community": "Community",
+    "experts": "Experts",
+    "invitations": "Invitations"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "send": "Send",
+    "noResults": "No results."
+  },
+  "layout": {
+    "textUnderLogo": "Admin panel",
+    "logout": "Logout"
+  },
+  "fields": {
+    "email": "E-mail",
+    "password": "Password",
+    "repeatPassword": "Repeat password"
+  },
+  "login": {
+    "title": "Log in",
+    "subtitle": "Thank you that you fight with us against the plague of fake news.",
+    "rememberMe": "Remember me",
+    "btn": "Log in",
+    "forgotPassword": "Forgot password?",
+    "cta": "Do you want to help us? Become one of the community fact-checkers!"
+  },
+  "register": {
+    "title": "Sign up",
+    "subtitle": "Thank you for your application! Register and join the DoFacts! community.",
+    "success": "Registration was successful! <2>Go to login page</2>.",
+    "alreadyHaveAccount": "Already have an account? Sign In!",
+    "agreement": "I agree to have my personal data processed within the scope necessary for the application to work.",
+    "sendBtn": "Sign up"
+  },
+  "passwordReset": {
+    "title": "Reset password",
+    "subtitle": "Set a new password. The password should contain at least 8 characters, one upper case letter, number and special character.",
+    "success": "Your password has been changed. Go to <2>login</2>.",
+    "btn": "Set",
+    "backToLogin": "Back to login page"
+  },
+  "passwordResetRequest": {
+    "title": "Reset password",
+    "subtitle": "Enter your email below and we'll send you a link to reset your password.",
+    "success": "Instructions to reset your password will be sent to you shortly. Please check your email.",
+    "btn": "Send",
+    "backToLogin": "Back to login page"
+  },
+  "submissions": {
+    "title": "Submissions",
+    "sourceLink": "Source URL",
+    "details": "Details"
+  },
+  "history": {
+    "title": "Submissions history",
+    "noResults": "No results."
+  }
+}

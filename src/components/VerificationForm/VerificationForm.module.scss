@@ -1,0 +1,27 @@
+@import '~styles/variables';
+
+.container {
+  padding: $space-m $space-l $space-l;
+  margin-bottom: $space-l;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: $space-m;
+}
+
+.hidden {
+  opacity: 0.3;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $space-l;
+}
+
+.letterCounter {
+  color: $gray;
+  line-height: 0;
+  margin-bottom: $space-m;
+}

@@ -1,0 +1,18 @@
+@import '~styles/variables';
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding: $space-m;
+  margin-bottom: $space-l;
+}
+
+.search {
+  margin-right: $space-s;
+}
+
+.field {
+  flex: 0 0 200px;
+  margin: $space-s $space-s $space-s 0;
+}

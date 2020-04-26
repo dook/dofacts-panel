@@ -1,0 +1,9 @@
+@import '~styles/variables';
+
+.statusActive {
+  color: $green;
+}
+
+.statusExpired {
+  color: $red-light;
+}

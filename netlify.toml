@@ -1,0 +1,7 @@
+[build]
+  command = "yarn build && echo 'User-agent: *\nDisallow: /' > build/robots.txt"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

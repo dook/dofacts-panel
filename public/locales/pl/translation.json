@@ -1,0 +1,84 @@
+{
+  "title": "Welcome to react using react-i18next",
+  "verdictTypes": {
+    "no_verdict": "Brak werdyktu",
+    "true": "Prawda",
+    "false": "Fake News",
+    "unidentified": "Nieweryfikowalne",
+    "spam": "Spam",
+    "awaiting": "Czeka na werdykt eksperta",
+    "dispute": "Spór"
+  },
+  "specializationTypes": {
+    "journalism": "Dziennikarstwo",
+    "biology": "Biologia",
+    "physics": "Fizyka",
+    "IT": "IT",
+    "chemistry": "Chemia",
+    "economy": "Ekonomia",
+    "other": "Inne"
+  },
+  "rolesNames": {
+    "admin": "Administrator",
+    "expert": "Ekspert",
+    "fact_checker": "Społeczność"
+  },
+  "menuItems": {
+    "submissions": "Zgłoszenia",
+    "history": "Historia",
+    "settings": "Ustawienia",
+    "community": "Społeczność",
+    "experts": "Eksperci",
+    "invitations": "Zaproszenia"
+  },
+  "layout": {
+    "textUnderLogo": "Panel administracyjny",
+    "logout": "Wyloguj"
+  },
+  "fields": {
+    "email": "E-mail",
+    "password": "Hasło",
+    "repeatPassword": "Powtórz hasło",
+    "nameAndSurname": "Imię i nazwisko",
+    "specialization": "Specjalizacja"
+  },
+  "login": {
+    "title": "Zaloguj się",
+    "subtitle": "Dziękujemy, że razem z nami walczysz z dezinformacją towarzyszącą epidemii koronawirusa! #fakehunter.",
+    "rememberMe": "Zapamiętaj mnie",
+    "btn": "Zaloguj się",
+    "forgotPassword": "Nie pamiętasz hasła?",
+    "cta": "Chcesz dołączyć do społeczności walczącej z dezinformacją? Zgłoś się!"
+  },
+  "register": {
+    "title": "Rejestracja",
+    "subtitle": "Dziękujemy za przesłane zgłoszenie! Zarejestruj się i dołącz do społecznośći #fakehunter.",
+    "success": "Registration was successful! <2>Go to login page</2>.",
+    "alreadyHaveAccount": "Masz już konto? Zaloguj się!",
+    "agreement": "Wyrażam zgodę na przetwarzanie moich danych osobowych (tj. imienia i nazwiska oraz adresu e-mail) w celu założenia i obsługi konta na niniejszym portalu internetowym. Wiem, że wyrażenie zgody jest dobrowolne, lecz konieczne w celu dokonania rejestracji. Zgodę mogę wycofać w każdej chwili.",
+    "sendBtn": "Zarejestruj się"
+  },
+  "passwordReset": {
+    "title": "Resetowanie hasła",
+    "subtitle": "Ustaw nowe hasło. Hasło powinno zawierać co najmniej 8 znaków, jedną wielką literę, cyfrę i znak specjalny.",
+    "success": "Twoje hasło zostało zmienione. Przejdź do <2>logowania</2>.",
+    "btn": "Zmień hasło",
+    "backToLogin": "Wróć do logowania"
+  },
+  "passwordResetRequest": {
+    "title": "Resetowanie hasła",
+    "subtitle": "Wprowadź e-mail użyty przy zakładaniu konta. Wyślemy na niego instrukcję dotyczącą resetowania hasła.",
+    "success": "Na podany e-mail wysłaliśmy dalsze instrukcje dotyczące resetowania hasła.",
+    "btn": "Wyślij",
+    "backToLogin": "Wróć do logowania"
+  },
+  "submissions": {
+    "title": "Zgłoszenia",
+    "sourceLink": "Link źródłowy",
+    "details": "Szczegóły"
+  },
+  "history": {
+    "title": "Historia zgłoszeń",
+    "noResults": "Brak wyników."
+  }
+}

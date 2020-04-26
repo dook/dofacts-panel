@@ -1,0 +1,51 @@
+@import '../../../styles/variables';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  background-color: $white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: $space-xl;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.body {
+  padding: $space-l $space-l $space-s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: $space-l;
+}
+
+.button {
+  margin-top: $space-l;
+  width: 100px;
+}
+
+.decoration {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: -125px;
+}
+
+.decoration {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: -125px;
+}
+
+.noButton {
+  bottom: -70px;
+}

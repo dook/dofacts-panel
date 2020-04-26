@@ -1,0 +1,16 @@
+@import '~styles/variables';
+
+.container {
+  padding: $space-l;
+  margin-bottom: $space-xl;
+}
+
+.image {
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid $gray-light;
+}
+
+.content {
+  margin: $space-m 0;
+}
