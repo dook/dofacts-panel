@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Typography } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
@@ -8,6 +9,7 @@ import AddUserForm from './AddUserForm';
 import styles from './AddUserModal.module.scss';
 
 const AddUserModal = ({ title, isOpen, onClose, onSubmit, data, error, isFetching }) => {
+  const { t } = useTranslation();
   const [showForm, setShowForm] = useState(true);
 
   const handleSubmit = values => {
@@ -32,12 +34,12 @@ const AddUserModal = ({ title, isOpen, onClose, onSubmit, data, error, isFetchin
           <DialogContent>
             <Typography className={styles.success}>
               <CheckCircleOutlineIcon />
-              <span>Dodano</span>
+              <span>{t('users.added')}</span>
             </Typography>
           </DialogContent>
           <DialogActions>
             <Button color="primary" onClick={() => setShowForm(true)} autoFocus>
-              Dodaj kolejnego
+              {t('users.addNextBtn')}
             </Button>
           </DialogActions>
         </>

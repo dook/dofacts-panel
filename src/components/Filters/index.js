@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouteMatch } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Select, MenuItem, FormControl, InputLabel, Paper } from '@material-ui/core';
 
 import history from 'base/history';
@@ -12,6 +13,7 @@ import FormSearchField from 'components/Forms/FormSearchField';
 import styles from './Filters.module.scss';
 
 export const ALL_OPTIONS = {
+  i18nkey: 'filters.showAll',
   label: 'Pokaż wszystkie',
   value: ''
 };
@@ -26,6 +28,7 @@ const extractDefaultFilterQuery = filters =>
   }, {});
 
 const Filters = ({ filters, withSearch, children }) => {
+  const { t } = useTranslation();
   const { url } = useRouteMatch();
   const { page, ...query } = useQuery();
   const [currentQuery, setCurrentQuery] = useState(() => ({ ...extractDefaultFilterQuery(filters), page }));
@@ -53,13 +56,13 @@ const Filters = ({ filters, withSearch, children }) => {
         />
       )}
       {filters?.map(el => {
-        const { name, label, options } = el;
+        const { name, i18nkey, label, options } = el;
         const isDefaultValue = Object.keys(el).includes('defaultValue');
 
         return (
           <FormControl key={name} className={styles.field}>
             <InputLabel id={name} shrink={isDefaultValue}>
-              {label}
+              {t(i18nkey) || label}
             </InputLabel>
             <Select
               labelId={name}
@@ -70,7 +73,7 @@ const Filters = ({ filters, withSearch, children }) => {
             >
               {options.map(option => (
                 <MenuItem key={option.value} value={option.value}>
-                  {option.label}
+                  {t(option.i18nkey) || option.label}
                 </MenuItem>
               ))}
             </Select>
@@ -90,6 +93,7 @@ Filters.propTypes = {
       defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
       options: PropTypes.arrayOf(
         PropTypes.shape({
+          i18nkey: PropTypes.string,
           label: PropTypes.string,
           value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
         })

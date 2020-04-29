@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import { Menu, MenuItem, IconButton } from '@material-ui/core';
@@ -8,6 +9,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import styles from './Checkers.module.scss';
 
 const TableOptions = ({ id, isActive, onStatusChange, onPromoteClick }) => {
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = event => setAnchorEl(event.currentTarget);
   const close = () => setAnchorEl(null);
@@ -29,7 +31,7 @@ const TableOptions = ({ id, isActive, onStatusChange, onPromoteClick }) => {
             onStatusChange(id, !isActive);
           }}
         >
-          {isActive ? 'Dezaktywuj konto' : 'Aktywuj konto'}
+          {isActive ? t('community.deactivate') : t('community.activate')}
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -37,7 +39,7 @@ const TableOptions = ({ id, isActive, onStatusChange, onPromoteClick }) => {
             onPromoteClick(id);
           }}
         >
-          Przydziel rolę eksperta
+          {t('community.promote')}
         </MenuItem>
       </Menu>
     </>

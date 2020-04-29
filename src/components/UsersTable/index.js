@@ -1,22 +1,25 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Chip } from '@material-ui/core';
-import { specializationTypes } from 'consts';
+
 import styles from './UsersTable.module.scss';
 
 const UsersTable = ({ data, optionsHeader, renderOptions }) => {
+  const { t } = useTranslation();
+
   return (
     <Paper className={styles.container}>
       <TableContainer>
         <Table aria-label="experts table">
           <TableHead>
             <TableRow>
-              <TableCell>Imię i nazwisko</TableCell>
-              <TableCell>Adres e-mail</TableCell>
-              <TableCell>Specjalizacja</TableCell>
-              <TableCell>Zgłoszenia zweryfikowane/przyznane</TableCell>
-              <TableCell>Data rejestracji</TableCell>
+              <TableCell>{t('users.nameAndSurname')}</TableCell>
+              <TableCell>{t('users.email')}</TableCell>
+              <TableCell>{t('users.specialization')}</TableCell>
+              <TableCell>{t('users.submissionsCount')}</TableCell>
+              <TableCell>{t('users.registerDate')}</TableCell>
               <TableCell align="center">{optionsHeader}</TableCell>
             </TableRow>
           </TableHead>
@@ -28,7 +31,7 @@ const UsersTable = ({ data, optionsHeader, renderOptions }) => {
                 </TableCell>
                 <TableCell>{item.email}</TableCell>
                 <TableCell>
-                  <Chip label={specializationTypes[item.specialization]} />
+                  <Chip label={t(`specializationTypes.${item.specialization}`)} />
                 </TableCell>
                 <TableCell>
                   {item.verified} / {item.assigned}

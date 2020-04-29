@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '@material-ui/core';
 
@@ -20,6 +21,7 @@ import styles from './Checkers.module.scss';
 const FILTERS = [
   {
     name: 'specialization',
+    i18nkey: 'filters.specialization',
     label: 'Specjalizacja',
     defaultValue: ALL_OPTIONS.value,
     options: [ALL_OPTIONS, ...specializationOptions]
@@ -27,6 +29,7 @@ const FILTERS = [
 ];
 
 const Checkers = () => {
+  const { t } = useTranslation();
   const query = useQuery();
   const dispatch = useDispatch();
   const [isOpen, setOpen] = useState(false);
@@ -60,16 +63,16 @@ const Checkers = () => {
 
   return (
     <>
-      <Title>Społeczność</Title>
+      <Title>{t('community.title')}</Title>
       <Filters filters={FILTERS}>
         <Button onClick={openModal} className={styles.addButton} variant="contained" color="primary">
-          Dodaj checkera
+          {t('community.addUser')}
         </Button>
       </Filters>
       <Suspense waitFor={checkers}>
         <UserTable
           data={checkers.data?.results || []}
-          optionsHeader="Opcje"
+          optionsHeader={t('community.options')}
           renderOptions={user => (
             <TableOptions
               id={user.id}
@@ -83,7 +86,7 @@ const Checkers = () => {
       </Suspense>
 
       <AddUserModal
-        title="Dodaj fact checkera"
+        title={t('community.addUser')}
         isOpen={isOpen}
         onClose={() => setOpen(false)}
         onSubmit={handleSubmit}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useRouteMatch } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { Button, Typography } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -20,6 +21,7 @@ import CheckersVerdicts from './CheckersVerdicts';
 import styles from './SubmissionDetails.module.scss';
 
 const SubmissionDetails = ({ role }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
     path,
@@ -62,7 +64,7 @@ const SubmissionDetails = ({ role }) => {
 
   return (
     <div className={styles.container}>
-      <Title>Zgłoszenie</Title>
+      <Title>{t('details.title')}</Title>
       <Suspense waitFor={submission} fallback={<Skeleton />}>
         <DisplaySubmissionDetails submission={submission.data} />
       </Suspense>
@@ -73,11 +75,11 @@ const SubmissionDetails = ({ role }) => {
         <div className={styles.successContainer}>
           <div className={styles.successText}>
             <CheckCircleOutlineIcon color="inherit" />
-            <span>Formularz wysłany</span>
+            <span>{t('details.formSent')}</span>
           </div>
           <div className={styles.successText}>
             <Button component={Link} to={appUrls.DASHBOARD} color="primary">
-              Lista zgłoszeń
+              {t('details.backToList')}
             </Button>
           </div>
         </div>
@@ -85,7 +87,7 @@ const SubmissionDetails = ({ role }) => {
 
       {submission.data &&
         (expertOpinion ? (
-          <VerificationForm title="Werdykt eksperta" values={expertOpinion} disableForm />
+          <VerificationForm title={t('details.expertVerdict')} values={expertOpinion} disableForm />
         ) : (
           showEditableForm && (
             <VerificationForm
@@ -100,14 +102,14 @@ const SubmissionDetails = ({ role }) => {
         <div className={styles.removeWrapper}>
           {submission.data?.deleted ? (
             <>
-              <Typography>Zgłoszenie usunięte</Typography>
+              <Typography>{t('details.submissionRemoved')}</Typography>
               <Button onClick={handleRecover} color="primary" startIcon={<RestoreIcon />}>
-                Przywróć zgłoszenie
+                {t('details.recoverBtn')}
               </Button>
             </>
           ) : (
             <Button onClick={handleRemove} color="secondary" startIcon={<DeleteIcon />}>
-              Usuń zgłoszenie
+              {t('details.removeBtn')}
             </Button>
           )}
         </div>
