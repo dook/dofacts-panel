@@ -12,7 +12,7 @@ import styles from './SubmissionCard.module.scss';
 const getVerdict = (t, verdict, isDuplicate, isSensitive) => {
   if (isDuplicate) return t('submissions.duplicate', 'Duplikat');
   if (isSensitive) return t('submissions.sensitive', 'Wrażliwe słowa');
-  return t(`verdictTypes.${verdict}`);
+  return verdict && t(`verdictTypes.${verdict}`);
 };
 
 // TODO: split card to submission and history version
