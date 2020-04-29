@@ -1,6 +1,6 @@
 # DoFacts! - admin panel
 
-Management panel for judging news related to COVID-19 received from the browser extension.
+Management panel for judging news related to COVID-19 received from the browser extension. It's a part of [dofacts project](https://github.com/dook/dofacts).
 
 ## Getting Started
 
